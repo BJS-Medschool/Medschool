@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedPrep — UHS MCQ Trainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="brand">MedPrep</div>
+      <div class="subtitle">UHS MBBS MCQ Trainer</div>
+    </div>
+    <button id="restartBtn" class="ghost">Restart</button>
+  </header>
+
+  <main class="container">
+    <section id="setupScreen" class="card">
+      <h1>Practice MCQs</h1>
+      <p class="muted">Choose your subject, module and number of questions.</p>
+
+      <div class="grid">
+        <label>Subject
+          <select id="subjectSelect"></select>
+        </label>
+        <label>Module
+          <select id="moduleSelect"></select>
+        </label>
+        <label>Questions
+          <select id="countSelect">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="50">50</option>
+          </select>
+        </label>
+      </div>
+
+      <button id="startBtn" class="primary">Start Test</button>
+
+      <div class="tips">
+        <b>Included question styles</b>
+        <ul>
+          <li>UHS-style conceptual MCQs</li>
+          <li>Clinical/application questions</li>
+          <li>Trap-style options</li>
+          <li>Explanations after answering</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="hidden">
+      <div class="stats">
+        <span id="progressText">Question 1 / 10</span>
+        <span id="scoreText">Score: 0</span>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+
+      <article class="card">
+        <div class="question-meta">
+          <span id="subjectBadge"></span>
+          <span id="difficultyBadge"></span>
+        </div>
+        <h2 id="questionText"></h2>
+        <div id="options"></div>
+        <div id="feedback" class="feedback hidden"></div>
+        <button id="nextBtn" class="primary hidden">Next Question</button>
+      </article>
+    </section>
+
+    <section id="resultScreen" class="card hidden">
+      <h1>Test Complete 🎉</h1>
+      <div class="result-number" id="finalPercent">0%</div>
+      <p id="resultSummary"></p>
+      <div id="reviewList"></div>
+      <button id="againBtn" class="primary">Take Another Test</button>
+    </section>
+  </main>
+
+  <footer>MedPrep • Built for MBBS exam practice</footer>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
